@@ -166,10 +166,15 @@ GAME_EVENT_F(player_spawn)
 		CBasePlayerPawn *pPawn = pController->GetPawn();
 
 		// Just in case somehow there's health but the player is, say, an observer
-		if (!g_bNoblock || !pPawn || !pPawn->IsAlive())
+		if (!pPawn || !pPawn->IsAlive())
 			return -1.0f;
 
-		pPawn->SetCollisionGroup(COLLISION_GROUP_DEBRIS);
+		// Fix new haunted CS2 bug? https://www.reddit.com/r/cs2/comments/1glvg9s/thank_you_for_choosing_anubis_airlines/
+		// We've seen this several times across different maps at this point
+		pPawn->m_vecAbsVelocity = Vector(0, 0, 0);
+
+		if (g_bNoblock)
+			pPawn->SetCollisionGroup(COLLISION_GROUP_DEBRIS);
 
 		return -1.0f;
 	});
