@@ -59,6 +59,7 @@ extern IGameEventManager2 *g_gameEventManager;
 extern CCSGameRules *g_pGameRules;
 extern CMapVoteSystem *g_pMapVoteSystem;
 extern CUtlVector<CServerSideClient*>* GetClientList();
+extern IVEngineServer2* g_pEngineServer2;
 
 CUtlVector<CDetourBase *> g_vecDetours;
 
