@@ -1407,8 +1407,8 @@ void ZR_InitialInfection()
 	if (g_flRespawnDelay < 0.0f)
 		g_bRespawnEnabled = false;
 
-	ClientPrintAll(HUD_PRINTCENTER, "First infection has started!");
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "First infection has started! Good luck, survivors!");
+	ClientPrintAll(HUD_PRINTCENTER, "Ha comenzado la primera infección!");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "¡Ha empezado la primera infección! Buena suerte!");
 	g_ZRRoundState = EZRRoundState::POST_INFECTION;
 }
 
@@ -1431,7 +1431,7 @@ void ZR_StartInitialCountdown()
 		if (g_iInfectionCountDown <= 60)
 		{
 			char message[256];
-			V_snprintf(message, sizeof(message), "First infection in \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "second" : "seconds");
+			V_snprintf(message, sizeof(message), "Primera infección en \7%i %s\1!", g_iInfectionCountDown, g_iInfectionCountDown == 1 ? "segundo" : "segundos");
 
 			ClientPrintAll(HUD_PRINTCENTER, message);
 			if (g_iInfectionCountDown % 5 == 0)
