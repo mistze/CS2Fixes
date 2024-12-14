@@ -1874,7 +1874,7 @@ CON_COMMAND_CHAT(zclass, "<teamname/class name/number> - Find and select your Z:
 			}
 		}
 
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Seleccione una clase utilizando \x2!zclass <nombre/número de clase>»);
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Seleccione una clase utilizando \x2!zclass <nombre/número de clase>);
 		return;
 	}
 
