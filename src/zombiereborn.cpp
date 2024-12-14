@@ -1027,7 +1027,7 @@ void SetupCTeams()
 
 void ZR_OnRoundStart(IGameEvent* pEvent)
 {
-	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "The game is \x05Humans vs. Zombies\x01, the goal for zombies is to infect all humans by knifing them.");
+	ClientPrintAll(HUD_PRINTTALK, ZR_PREFIX "El juego es \x05Humanos contra Zombis\x01, el objetivo de los zombis es infectar a todos los humanos acuchillándolos.");
 	SetupRespawnToggler();
 	CZRRegenTimer::RemoveAllTimers();
 
@@ -1751,7 +1751,7 @@ void ZR_EndRoundAndAddTeamScore(int iTeamNum)
 	}
 }
 
-CON_COMMAND_CHAT(ztele, "- Teleport to spawn")
+CON_COMMAND_CHAT(ztele, "- Teletransporte al spawn")
 {
 	// Silently return so the command is completely hidden
 	if (!g_bEnableZR)
@@ -1766,14 +1766,14 @@ CON_COMMAND_CHAT(ztele, "- Teleport to spawn")
 	// Check if command is enabled for humans
 	if (!g_bZteleHuman && player->m_iTeamNum() == CS_TEAM_CT)
 	{
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "You cannot use this command as a human.");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "No puedes utilizar este comando como humano.");
 		return;
 	}
 
 	std::vector<SpawnPoint*> spawns = ZR_GetSpawns();
 	if (!spawns.size())
 	{
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"There are no spawns!");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"No hay spawns!");
 		return;
 	}
 
@@ -1789,14 +1789,14 @@ CON_COMMAND_CHAT(ztele, "- Teleport to spawn")
 
 	if (!pPawn->IsAlive())
 	{
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"You cannot teleport when dead!");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"No puedes teletransportarte estando muerto!");
 		return;
 	}
 
 	//Get initial player position so we can do distance check
 	Vector initialpos = pPawn->GetAbsOrigin();
 
-	ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"Teleporting to spawn in 5 seconds.");
+	ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX"Teletransporte al spawn en 5 segundos.");
 
 	CHandle<CCSPlayerPawn> pawnHandle = pPawn->GetHandle();
 
@@ -1816,11 +1816,11 @@ CON_COMMAND_CHAT(ztele, "- Teleport to spawn")
 			QAngle rotation = pSpawn->GetAbsRotation();
 
 			pPawn->Teleport(&origin, &rotation, nullptr);
-			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "You have been teleported to spawn.");
+			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "Has sido teletransportado al spawn.");
 		}
 		else
 		{
-			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "Teleport failed! You moved too far.");
+			ClientPrint(pPawn->GetOriginalController(), HUD_PRINTTALK, ZR_PREFIX "¡Teletransporte fallido! Te has alejado demasiado.");
 		}
 
 		return -1.0f;
@@ -1835,7 +1835,7 @@ CON_COMMAND_CHAT(zclass, "<teamname/class name/number> - Find and select your Z:
 
 	if (!player)
 	{
-		ClientPrint(player, HUD_PRINTCONSOLE, ZR_PREFIX "You cannot use this command from the server console.");
+		ClientPrint(player, HUD_PRINTCONSOLE, ZR_PREFIX "No puede utilizar este comando desde la consola del servidor.");
 		return;
 	}
 
@@ -1863,9 +1863,9 @@ CON_COMMAND_CHAT(zclass, "<teamname/class name/number> - Find and select your Z:
 			const char* sCurrentClass = g_pUserPreferencesSystem->GetPreference(iSlot, team == CS_TEAM_CT ? HUMAN_CLASS_KEY_NAME : ZOMBIE_CLASS_KEY_NAME);
 			
 			if (sCurrentClass[0] != '\0')
-				ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Your current %s class is: \x10%s\x1. Available classes:", sTeamName, sCurrentClass);
+				ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Tu clase %s actual es: \x10%s\x1. Clases disponibles:", sTeamName, sCurrentClass);
 			else
-				ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Available %s classes:", sTeamName);
+				ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Clases %s disponibles:", sTeamName);
 
 			FOR_EACH_VEC(vecClasses, i)
 			{
@@ -1874,7 +1874,7 @@ CON_COMMAND_CHAT(zclass, "<teamname/class name/number> - Find and select your Z:
 			}
 		}
 
-		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Select a class using \x2!zclass <class name/number>");
+		ClientPrint(player, HUD_PRINTTALK, ZR_PREFIX "Seleccione una clase utilizando \x2!zclass <nombre/número de clase>»);
 		return;
 	}
 
