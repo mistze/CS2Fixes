@@ -308,7 +308,7 @@ void SayChatMessageWithTimer(IRecipientFilter& filter, const char* pText, CCSPla
 
 	// Only display trigger time if the timer is greater than 4 seconds, and time expires within the round
 	if ((uiTriggerTimerLength > 4) && (fCurrentRoundClock > uiTriggerTimerLength))
-	{
+{
         int iTriggerTime = fCurrentRoundClock - uiTriggerTimerLength;
 
         // Round timer to nearest whole second
@@ -318,12 +318,14 @@ void SayChatMessageWithTimer(IRecipientFilter& filter, const char* pText, CCSPla
         int mins = iTriggerTime / 60;
         int secs = iTriggerTime % 60;
 
-        V_snprintf(buf, sizeof(buf), "css_countdown_text \"%s\"", uiTriggerTimerLength, pText + sizeof("Console:"));
+        //parse to external CS# countdown timer plugin
+        V_snprintf(buf, sizeof(buf), "css_countdown_text %d \"%s\"", uiTriggerTimerLength, pText + sizeof("Console:"));
         g_pEngineServer2->ServerCommand(buf);
 
+        //now back to the Red Console + Green Say Text
         V_snprintf(buf, sizeof(buf), "%s %s %s %2d:%02d", " \7CONSOLE:\4", pText + sizeof("Console:"), "\x10- @", mins, secs);
-
-    }
+        
+    }	
 	else
 		V_snprintf(buf, sizeof(buf), "%s %s", " \7CONSOLE:\4", pText + sizeof("Console:"));
 
