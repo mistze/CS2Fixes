@@ -786,6 +786,8 @@ void CS2Fixes::Hook_PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClie
 				soundEventHashes.insert(GetSoundEventHash("Weapon_AWP.Zoom"));
 				soundEventHashes.insert(GetSoundEventHash("Weapon_AWP.ZoomOut"));
 				soundEventHashes.insert(GetSoundEventHash("Weapon_Revolver.Prepare"));
+				soundEventHashes.insert(GetSoundEventHash("T_Default.StepLeft"));
+				soundEventHashes.insert(GetSoundEventHash("CT_Default.StepLeft"));
 				soundEventHashes.insert(GetSoundEventHash("Weapon.AutoSemiAutoSwitch")););
 
 			if (!soundEventHashes.contains(msg->soundevent_hash()))

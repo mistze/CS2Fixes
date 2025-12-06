@@ -1758,8 +1758,6 @@ void ZR_PostEventAbstract_SosStartSoundEvent(const uint64* pClients, CNetMessage
 		soundEventHashes.insert(GetSoundEventHash("zr.amb.scream"));
 		soundEventHashes.insert(GetSoundEventHash("zr.amb.zombie_die"));
 		soundEventHashes.insert(GetSoundEventHash("zr.amb.zombie_pain"));
-		soundEventHashes.insert(GetSoundEventHash("T_Default.StepLeft"));
-		soundEventHashes.insert(GetSoundEventHash("CT_Default.StepLeft"));
 		soundEventHashes.insert(GetSoundEventHash("zr.amb.zombie_voice_idle")););
 
 	// Filter out people with zsounds disabled from hearing this sound
