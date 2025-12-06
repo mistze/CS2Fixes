@@ -105,6 +105,8 @@ void ZR_Precache(IEntityResourceManifest* pResourceManifest)
 	pResourceManifest->AddResource(g_cvarZombieWinOverlayParticle.Get().String());
 
 	pResourceManifest->AddResource("soundevents/soundevents_zr.vsndevts");
+	pResourceManifest->AddResource("soundevents/weapons_all_silence.vsndevts");
+	pResourceManifest->AddResource("soundevents/sounds_footsteps.vsndevts");
 }
 
 ZRModelEntry::ZRModelEntry(std::shared_ptr<ZRModelEntry> modelEntry) :
