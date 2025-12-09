@@ -106,7 +106,7 @@ void ZR_Precache(IEntityResourceManifest* pResourceManifest)
 
 	pResourceManifest->AddResource("soundevents/soundevents_zr.vsndevts");
 	pResourceManifest->AddResource("soundevents/weapons_all_silence.vsndevts");
-	pResourceManifest->AddResource("soundevents/sounds_footsteps.vsndevts");
+	pResourceManifest->AddResource("soundevents/low_footsteps_v3.vsndevts");
 }
 
 ZRModelEntry::ZRModelEntry(std::shared_ptr<ZRModelEntry> modelEntry) :
